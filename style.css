@@ -1,0 +1,300 @@
+@font-face {
+    font-family: 'Blooming Elegant';
+    src: url(fonts/Blooming\ Elegant\ Sans.otf);
+}
+
+@font-face {
+    font-family: 'Cedora Bold';
+    src: url(fonts/Cedora-BoldStd.otf);
+}
+
+@font-face {
+    font-family: 'Purissima Bold';
+    src: url(fonts/Purissima\ Bold\ W00\ Regular.ttf);
+}
+
+
+body {
+    height: 1500px;
+    margin: 0px;
+}
+
+header {
+    height: 90px;
+    width: auto;
+    background-color: #00237d;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav img {
+    padding: 28px;
+}
+
+/* .h1-title,
+.h2-title {
+    text-align: center;
+} */
+
+.h2-title {
+    font-family: Blooming Elegant;
+    color: #0c5adb;
+    font-size: 35px;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+.h1-title {
+    font-family: Cedora Bold;
+    font-size: 40px;
+}
+
+/*  
+    space-between - 1й и последний блок размещаются
+    в начале и конце, а между остальными 
+    высчитывается одинаковое расстояние
+
+    space-around - равномерное распределение
+    пространства между карточками
+*/
+
+
+/* .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container-2{
+    display: flex;
+    flex-direction: row;
+} */
+
+
+.card {
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    position: relative;
+    margin-bottom: 40px;
+    border: none;
+}
+
+
+
+.card>img,
+.substrate {
+    width: 255px;
+    height: 306px;
+
+    /* width: 255px;
+    height: 306px; */
+
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+}
+
+.card>img{
+    z-index: 5;
+}
+
+.substrate{
+    z-index: 1;
+}
+
+/* .card>img{
+    
+} */
+
+.card:hover .substrate {
+    transform: rotate(-10deg);
+}
+
+.card:hover .rectangle {
+    background-color: #00237d;
+}
+
+.card:hover .position-title {
+    transform: translateY(-25px);
+    visibility: hidden;
+    /* элемент становится НЕВИДИМЫМ */
+    opacity: 0;
+    /* элемент ПРОЗРАЧНЫЙ */
+}
+
+.card:hover .icons {
+    top: 50px;
+    visibility: visible;
+    /* иконки становятся видимыми */
+    opacity: 1;
+}
+
+.substrate {
+    background-color: #0c59e4;
+    position: absolute;
+    /* top: 0;
+    left: 0; */
+    transition: all 1s;
+}
+
+.rectangle {
+    width: 250px;
+    height: 80px;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    background-color: #0c59e4;
+    position: absolute;
+    top: 233px;
+    left: 40px;
+    transition: all 1s;
+    z-index: 6;
+}
+
+.rectangle>span {
+    color: white;
+    position: absolute;
+}
+
+span.name-title {
+    font-size: 31px;
+    font-family: 'Purissima Bold';
+    top: 15px;
+    left: 55px;
+}
+
+span.position-title {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    top: 48px;
+    left: 55px;
+    visibility: visible;
+    /* Изначально элемент ВИДИМЫЙ */
+    opacity: 1;
+    /* Изначально элемент ВИДИМЫЙ и НЕПРОЗРАЧНЫЙ */
+    transition: all 0.5s;
+}
+
+span.icons {
+    top: 80px;
+    left: 53px;
+    visibility: hidden;
+    /* изначально иконки невидимые */
+    opacity: 0;
+    /*изначально иконки прозрачные */
+    transition: all 0.5s;
+}
+
+span.icons>a {
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+
+/* для планшета: */
+@media (min-width: 481px) and (max-width: 830px) {
+    .rectangle {
+        left: 22px;
+    }
+}
+
+/* для пк */
+@media (min-width: 769px) {
+    /* .container {
+        flex-direction: row;
+    }
+
+    .h1-title,
+    .h2-title {
+        margin-left: 130px;
+        text-align: left;
+    } */
+
+
+    .rectangle {
+        left: 10px;
+    }
+}
+
+.join{
+    background: #0c5adb;
+    color: white;
+    width: 16rem;
+    height: 4rem;
+    padding: 0.85em 0.75em;
+    border: none;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.35s;
+}
+
+.join::before{
+    content: '';
+    background: #00237d;
+    position: absolute;
+    top: 100%;
+    bottom: 0;
+    left: -100%;
+    right: 100%;
+    z-index: -1;
+    padding: 0.85em 0.75em;
+    display: block;
+    width: 100%;
+    height: 200%;
+    transition: all 0.35s;
+    rotate: 45deg;
+}
+
+
+/* при наведении на кнопку, применяю стили для псевдоэлемента */
+.join:hover::before{
+    transform: scale(1.5, 2);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.35s;
+}
+
+
+
+
+/* 
+По умолчанию у всех элементов
+position: static
+Не работают св-ва top, left, right, bottom
+
+position:relative
+Можем задавать св-ва top,left...
+Элемент с position relative двигается относительно
+своего изначального положения
+
+
+*/
+
+/* .wrapper{
+    background-color: rgb(201, 201, 243);
+    padding: 20px;
+    font-size: 30px;
+     position: relative;
+}
+
+.first-block{
+    background-color: green;
+    position: absolute;
+    top: 0px;
+    left: 100px;
+}
+
+.second-block{
+    background-color: red;
+}
+
+.third-block{
+    background-color: orange;
+} */
